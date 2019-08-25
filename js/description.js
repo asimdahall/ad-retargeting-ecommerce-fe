@@ -31,9 +31,9 @@ async function init() {
 
   function fetchData() {
     console.log("...fetching");
-    return fetch("../node_scrapper/darajProductData.json").then(res =>
-      res.json()
-    );
+    return fetch(
+      "https://raw.githubusercontent.com/asimdahall/daraz-project/master/darajProductData.json"
+    ).then(res => res.json());
   }
 
   function updateDom() {

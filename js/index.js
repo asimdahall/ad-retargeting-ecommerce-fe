@@ -72,9 +72,7 @@ async function init() {
               </div>
               <div class="load-more-button-container">
               <button id = "load_more">
-                <a href = "/description.html?id=${
-                  currentData.id
-                }">Visit page</a>
+                <a href = "/description.html?id=${currentData.id}">Visit page</a>
               </button>
               </div>
   
@@ -98,9 +96,9 @@ async function init() {
   }
 
   function fetchData() {
-    return fetch("../node_scrapper/darajProductData.json").then(res =>
-      res.json()
-    );
+    return fetch(
+      "https://raw.githubusercontent.com/asimdahall/daraz-project/master/darajProductData.json"
+    ).then(res => res.json());
   }
 
   function setCurrentData() {
