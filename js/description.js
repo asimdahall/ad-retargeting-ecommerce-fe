@@ -15,7 +15,7 @@ async function init() {
 
   function setCartItem() {
     let badge = document.querySelector(".badge");
-    let cartItems = localStorage.getItem("cartItems") || [];
+    let cartItems = localStorage.getItem("cartItems") || "[]";
     badge.innerHTML = JSON.parse(cartItems).length;
   }
 

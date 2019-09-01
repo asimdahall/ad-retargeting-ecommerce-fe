@@ -11,6 +11,7 @@ async function init() {
   const loadMore = document.querySelector("#load_more");
   const modal = document.querySelector("#myModal");
   const search = document.querySelector("#search");
+  const adsContainer = document.querySelector(".ads");
 
   //event-listeners
   search.addEventListener("submit", e => {
@@ -24,9 +25,38 @@ async function init() {
     search.reset();
   });
 
+  const getSuggestedItems = async () => {
+    let clickedItems = getItems("clickedItems");
+    let ids = clickedItems.map(item => item.id);
+    for (let i = 0; i < ids.length; i++) {
+      let d = await fetch(`http://localhost:3001/retarget/${ids[i]}`);
+      let res = await d.json();
+      let adIds = res.data.finalItems;
+      console.log(adIds);
+      setAds(adIds);
+    }
+  };
+
+  getSuggestedItems();
+
+  const setAds = ids => {
+    let items = [];
+    ids.forEach(id => {
+      let data = siteData.find(data => {
+        return data.id === id;
+      });
+      items = [...items, data];
+    });
+    let pevItems = JSON.parse(localStorage.getItem("retargatedItems") || "[]");
+    console.log({ pevItems, items });
+    localStorage.setItem(
+      "retargatedItems",
+      JSON.stringify([...pevItems, ...items])
+    );
+  };
+
   loadMore.addEventListener("click", () => {
     currentDataIndex += 1;
-
     loadDataIntoDom();
   });
 
@@ -111,7 +141,6 @@ async function init() {
   }
 
   function loadDesc(e, i) {
-    console.log({ e, i });
     if (e.target.tagName === "BUTTON") {
       addToCart(e, i);
       return;
@@ -121,18 +150,18 @@ async function init() {
     window.location.href = url;
   }
 
-  function addToCart(e, i) {
-    setItem(siteData[i], "cartItems");
+  function addToCart(e, id) {
+    setItem(siteData.find(item => item.id === id), "cartItems");
     setCartItem();
   }
 
   //localstorage
   function setItem(data, id = "clickedItems") {
-    let clickedItems = getItems();
+    let clickedItems = getItems(id);
     if (clickedItems.some(item => item.id === data.id)) {
       return;
     }
-    localStorage.setItem(id, JSON.stringify([...getItems(), data]));
+    localStorage.setItem(id, JSON.stringify([...clickedItems, data]));
   }
 
   function getItems(id = "clickedItems") {
@@ -167,8 +196,46 @@ async function init() {
       cardDeck.appendChild(card);
     });
   }
+
+  const showAds = () => {
+    let ads = JSON.parse(localStorage.getItem("retargatedItems") || "[]");
+    ads = _.shuffle(ads.splice(1, 6));
+    adsContainer.innerHTML = "";
+    ads.forEach((item, i) => {
+      if (item) {
+        const card = document.createElement("div");
+        card.setAttribute("class", "ad");
+        card.addEventListener("click", e => loadDesc(e, item.id));
+        let d = document.createElement("div");
+        d.setAttribute("class", "load-more-button-container");
+        let b = document.createElement("button");
+        b.id = "load_more";
+        b.innerHTML = "Add to cart";
+        b.addEventListener("click", e => addToCart(e, i));
+        d.appendChild(b);
+
+        card.innerHTML = `  <div style = "display:flex"> <div class="ad-image">
+      <img src=${item.image ? item.image : ""} alt="asim">
+    </div>
+    <div class="ad-description">
+      <strong class="adv-title">
+        ${item.title}
+      </strong>
+      <div class="ad-desc">
+      ${item.desc.slice(1, 60)}...
+      </div>
+ 
+    </div>
+    </div>`;
+        card.appendChild(d);
+        adsContainer.appendChild(card);
+      }
+    });
+  };
   siteData = await fetchData();
+  siteData = _.shuffle(siteData);
   siteDataClone = siteData;
+  showAds();
   setCartItem();
   loadDataIntoDom();
   currentData.forEach(data => {});

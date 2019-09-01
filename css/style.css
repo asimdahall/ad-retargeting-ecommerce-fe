@@ -12,12 +12,18 @@ body {
   justify-content: flex-start;
 }
 
+.container {
+}
+
 .card {
   margin-top: 20px;
   width: 32% !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   padding: 10px;
+  background-color: rgb(226, 226, 226);
+  transition: 0.5s;
 }
+
 .load-more-button-container {
   width: 100%;
   display: flex;
@@ -46,6 +52,8 @@ body {
 .jumbotron {
   min-height: 100px;
   margin-top: 10px;
+  width: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .item-image {
   width: 100%;
@@ -69,4 +77,53 @@ body {
   background-color: red;
   color: white;
   border-radius: 50%;
+}
+
+.navbar {
+  position: fixed !important;
+  z-index: 999 !important;
+  width: 100% !important;
+  top: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.window-container {
+  width: 100%;
+  margin-top: 60px !important;
+  display: flex;
+  padding: 0px 30px;
+}
+.ads-container {
+  width: 50%;
+  padding: 10px 30px;
+}
+
+.ads {
+  height: 100%;
+}
+
+.ad {
+  width: 100%;
+  min-height: 200px;
+  /* border: 2px solid red; */
+  margin: 20px 0px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.ad-image {
+  height: 100%;
+
+  /* border: 1px solid green; */
+}
+
+.ad-image > img {
+  height: 100%;
+  width: 130px;
+}
+.ad-description {
+  padding: 10px;
+  box-sizing: border-box;
+  /* overflow: hidden; */
 }

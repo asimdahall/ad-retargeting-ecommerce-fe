@@ -1,77 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Ecommerce</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0" id = "search" >
-          <input
-            class="form-control mr-sm-2"
-          name = "search"
-            type="search"
-            placeholder="search "
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">
-            Search
-          </button>
-        </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Ecommerce</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" id="search">
+        <input class="form-control mr-sm-2" name="search" type="search" placeholder="search " aria-label="Search" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/cart.html?ap=true">
+            <img src="/assets/ cart.jpg" alt="cart" class="cart" />
+            <span class="badge">0</span>
+          </a>
+        </li>
+      </ul>
+  </nav>
+  <div class="window-container">
+    <div class="container">
+
+      <div class="card-container justify-content-between row ">
+        <h2>Hottest items in market</h2>
+      </div>
+      <div class="load-more-button-container">
+        <button id="load_more">Load more</button>
       </div>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/cart.html?ap=true">
-              <img src="/assets/ cart.jpg" alt="cart" class="cart" />
-              <span class="badge">0</span>
-            </a>
-          </li>
-        </ul>
-    </nav>
-
-    <div class="container">
-      <div class="card-container justify-content-between row ">
-       </div>
-        <div class="load-more-button-container">
-          <button id = "load_more">Load more</button>
-        </div>
 
 
- 
 
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -81,7 +67,7 @@
               </button>
             </div>
             <div class="modal-body">
-                
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -90,19 +76,47 @@
           </div>
         </div>
       </div>
-      
 
-  </body>
-  
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.slim.js"
-  integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
-  crossorigin="anonymous"></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"
-  ></script>
-  <script src="/js/index.js"></script>
+    </div>
+    <div class="ads-container">
+      <h3>Suggested for you</h3>
+      <div class="ads">
+        <div class="ad">
+            <div class="ad-image">
+              <img src="https://yt3.ggpht.com/a/AGF-l78A33KbkGY4t4XH-eNu-obGGVEVAFeVZW1jMw=s900-mo-c-c0xffffffff-rj-k-no" alt="asim">
+            </div>
+            <div class="ad-description">
+              <strong class="adv-title">
+                Asim
+              </strong>
+              <div class="ad-desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              </div>
+              <div class="load-more-button-container">
+                  <button id="load_more">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="ad">
+
+        </div>
+        <div class="ad">
+
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+  integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
 
 </html>
