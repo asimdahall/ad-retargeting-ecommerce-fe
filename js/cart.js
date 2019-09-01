@@ -71,7 +71,7 @@ async function init() {
       card.setAttribute("class", "card col0-md-4");
       card.addEventListener("click", e => loadDesc(e, item.id));
       let b = document.createElement("button");
-      b.className = "btn btn-primary";
+      b.className = "btn btn-success";
       b.addEventListener("click", e => addToCart(e, i));
       card.innerHTML = ` <img class="card-img-top" src=${
         item.image
@@ -84,7 +84,7 @@ async function init() {
     
     </div>`;
       card.appendChild(b);
-      b.className = "btn btn-primary";
+      b.className = "btn btn-success";
       b.innerHTML = "Checkout from cart";
       cardDeck.appendChild(card);
     });

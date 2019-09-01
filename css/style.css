@@ -1,4 +1,11 @@
-.card-container {
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+* {
+  font-family: "Raleway", Times, serif;
+}
+body {
+  font-family: "Raleway", Times, serif;
+}
+.pa .card-container {
   margin-top: 10px !important;
   display: flex !important;
   flex-wrap: wrap !important;
@@ -7,7 +14,9 @@
 
 .card {
   margin-top: 20px;
-  width: 30% !important;
+  width: 32% !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px;
 }
 .load-more-button-container {
   width: 100%;
@@ -18,12 +27,22 @@
   padding: 20px;
 }
 
-.load-more-button-container button {
-  height: 50px;
-  width: 200px;
-  background-color: rebeccapurple;
-  color: white;
+.load-more-button-container button,
+.btn-success {
+  height: 50px !important;
+  width: 200px !important;
+  background-color: rebeccapurple !important;
+  color: white !important;
+  margin: auto;
+  border: none;
 }
+.load-more-button-container button:focus,
+.btn-success:focus {
+  background-color: white !important;
+  color: black !important;
+  border: rebeccapurple !important;
+}
+
 .jumbotron {
   min-height: 100px;
   margin-top: 10px;

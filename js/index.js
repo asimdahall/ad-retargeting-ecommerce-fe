@@ -79,7 +79,7 @@ async function init() {
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-success">Save changes</button>
               </div>
             </div>
           </div>`;
@@ -147,10 +147,10 @@ async function init() {
     cardDeck.innerHTML = "";
     currentData.forEach((item, i) => {
       const card = document.createElement("div");
-      card.setAttribute("class", "card col0-md-4");
+      card.setAttribute("class", "card");
       card.addEventListener("click", e => loadDesc(e, item.id));
       let b = document.createElement("button");
-      b.className = "btn btn-primary";
+      b.className = "btn btn-success";
       b.innerHTML = "Add to cart";
       b.addEventListener("click", e => addToCart(e, i));
       card.innerHTML = ` <img class="card-img-top" src=${
